@@ -1,3 +1,15 @@
+# modules/cloudflare-dns/main.tf
+terraform {
+  required_providers {
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
+  }
+}
+
+
+
 # Create TXT records
 resource "cloudflare_record" "txt_records" {
   count   = length(var.verification_records.txt_record)
